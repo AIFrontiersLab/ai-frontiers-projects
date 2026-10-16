@@ -1,4 +1,13 @@
 {
   "foundry": "ai-frontiers",
-  "projects": []
+  "projects": [
+    {
+      "pattern": "mcp_gateway",
+      "run_id": "afp-20261015-163349-f6fc1f59",
+      "slug": "mcp-operations-gateway",
+      "status": "validated",
+      "title": "MCP Operations Gateway",
+      "topic_id": 16
+    }
+  ]
 }
