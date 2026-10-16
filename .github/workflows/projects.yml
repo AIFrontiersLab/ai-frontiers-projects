@@ -1,0 +1,22 @@
+name: projects
+on:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test each project
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          for project in projects/*; do
+            if [ -f "$project/pyproject.toml" ]; then
+              python -m venv "$project/.venv"
+              "$project/.venv/bin/pip" install -e "$project" pytest
+              "$project/.venv/bin/pytest" "$project/tests" -q
+            fi
+          done
